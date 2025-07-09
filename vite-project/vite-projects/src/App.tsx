@@ -1,17 +1,22 @@
 import { useForm} from "react-hook-form"
 import './App.css'
+import toast, {Toaster} from "react-hot-toast";
 
 
 function App() {
+
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting},
   } = useForm();
   
   async function onSubmit(data) {
-    await new Promise((resolve => setTimeout(resolve, 6000)));
+    await new Promise((resolve => setTimeout(resolve, 1000)));
     console.log("submitting the form", data);
+    toast.success("Form Submitted Sucessfully", {
+      duration: 6000,
+    });
   }
 
   return (
@@ -76,9 +81,25 @@ function App() {
       <input {...register("password")}/>
     </div>
     <br/>
-    <input type = "Submit"  disabled={isSubmitting}
-    value={isSubmitting ? "Submitting" : "Submit"}
-    />
+    <button type="button" onClick={() => {
+      handleSubmit(onSubmit)();
+    }
+    }
+    disabled = {isSubmitting} >
+      {isSubmitting ? "Submitting" :"Submit"}
+    </button>
+
+    <Toaster
+    toastOptions={{
+      className: '',
+      style: {
+        border: '1px solid black',
+        background: 'pink',
+        padding: '13px',
+        fontFamily: 'sans-serif',
+        color: "black",
+      }
+    }}/>
    </form> 
   )
 }
