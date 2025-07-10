@@ -4,6 +4,7 @@ import About from './About'
 import Login from './Login'
 import './App.css'
 
+
 function App() {
   return (
     <>
@@ -28,7 +29,6 @@ function App() {
         </nav>
       </header>
 
-      {/* Page content pushed below fixed header */}
       <main style={{ paddingTop: '60px' }}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -41,4 +41,3 @@ function App() {
 }
 
 export default App;
-

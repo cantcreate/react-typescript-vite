@@ -1,6 +1,6 @@
 import { useForm} from "react-hook-form"
-import './App.css'
-import toast, {Toaster} from "react-hot-toast";
+import "./App.css"
+import toast, {Toaster} from "react-hot-toast"
 
 
 export default function Login() {
